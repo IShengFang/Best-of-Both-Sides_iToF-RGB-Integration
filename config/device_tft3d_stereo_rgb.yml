@@ -1,0 +1,64 @@
+exp_name: Device_CW
+mode: 'StereoRGB' # MonoRGB, StereoRGB, RGBD, SplitStereoRGB
+
+model:
+  resnet_depth: 18
+  up_mode: 'bilinear'
+  pretrained_img_encoder: true
+  resblock_decoder: false
+  out_size: [480,640]
+  depth_res: false
+  out_act: 'tanh'
+
+data:
+  dataset: TFT3D
+  cam_path: cam_param/
+  depth_scale: 3000
+
+train:
+  epochs: 100
+  use_mask: true
+  dataloader: 
+    batch_size: 4
+    val_batch_size: 8
+    
+  optim:
+    lr: 1.e-4
+    betas: [0, 0.999]
+    use_radam: true
+    fixed_img_encoder: false
+    lr_decay: 5.e-5
+    use_lr_decay: false
+
+  loss:
+    photo_loss: 'ssim_l1' # ssim_l1, ssim, l1, l2
+    structure_loss: false
+    smooth_loss: true
+    depth_consist_loss: false
+  loss_weights:
+    warp2uw_weight: 1.
+    warp2w_weight: 1.
+    depth_consist_weight: 1.
+    smooth_loss_weight: 1.0e-1
+    structure_loss_weight: 1.e-2
+  two-stage:
+    use: false
+    epoch: 50
+    loss:
+      photo_loss: 'ssim_l1' # ssim_l1, ssim, l1, l2
+      structure_loss: false
+      smooth_loss: true
+      depth_consist_loss: true
+    loss_weights:
+      warp2uw_weight: 1
+      warp2w_weight: 1
+      depth_consist_weight: 1
+      smooth_loss_weight: 1.0e-1
+      structure_loss_weight: 1.0e-2
+  structure_distillation:
+    knowledge: # midas
+    midas:
+      midas_mode: 'MiDaS' #'DPT_Large, DPT_Hybrid, MiDaS, MiDaS_small'
+      resize4midas: false
+
+  
