@@ -71,5 +71,15 @@ Notice that the `StereoRGB` models need to be evaluated with the `--stereo_weigh
 python test.py --config_path <configuration yaml> --stereo_weight_path <path to the StereoRGB model>
 ```
 
+## Citation
+```Bibtex
+@inproceedings{fang20wacv,
+ title = {Best of Both Sides: Integration of Absolute and Relative Depth Sensing Modalities Based on iToF and RGB Cameras},
+ author = {I-Sheng Fang and Wei-Chen Chiu and Yong-Sheng Chen},
+ booktitle = {ICPR},
+ year = {2024}
+} 
+```
+
 ## Disclaimer
 This repository is for research purposes only.
