@@ -46,7 +46,7 @@ The `--train_cam_model` flag is used to specify the model for which camera to tr
 
 ### Configuration
 You can find the configuration yaml files in the `configs` directory.
-This yaml file contains the hyperparameters for training.
+These yaml files contain the hyperparameters for training.
 For pseudo camera calibration, you can use the configuration files starting with `pseudo`.
 For device camera calibration, you can use the configuration files starting with `device`.
 
