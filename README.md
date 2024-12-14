@@ -73,7 +73,7 @@ python test.py --config_path <configuration yaml> --stereo_weight_path <path to 
 
 ## Citation
 ```Bibtex
-@inproceedings{fang20wacv,
+@inproceedings{fang2024itofrgb,
  title = {Best of Both Sides: Integration of Absolute and Relative Depth Sensing Modalities Based on iToF and RGB Cameras},
  author = {I-Sheng Fang and Wei-Chen Chiu and Yong-Sheng Chen},
  booktitle = {ICPR},
